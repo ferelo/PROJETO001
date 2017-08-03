@@ -1,0 +1,423 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.12
+-- Dumped by pg_dump version 9.4.12
+-- Started on 2017-08-03 01:51:52
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'LATIN1';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+DROP DATABASE fernando;
+--
+-- TOC entry 2034 (class 1262 OID 27707)
+-- Name: fernando; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE fernando WITH TEMPLATE = template0 ENCODING = 'LATIN1' LC_COLLATE = 'C' LC_CTYPE = 'C';
+
+
+ALTER DATABASE fernando OWNER TO postgres;
+
+\connect fernando
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'LATIN1';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1 (class 3079 OID 11855)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2037 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 178 (class 1259 OID 27752)
+-- Name: aluno; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE aluno (
+    id_aluno integer NOT NULL,
+    id_cidade integer,
+    nome character varying(255) NOT NULL,
+    cpf character varying(11) NOT NULL,
+    rg character varying(11) NOT NULL,
+    sexo integer NOT NULL,
+    data_nascimento date NOT NULL,
+    telefone character varying(11),
+    logradouro character varying(255) NOT NULL,
+    bairro character varying(255) NOT NULL,
+    numero character varying(255) NOT NULL,
+    matricula character varying(255) NOT NULL,
+    idade integer NOT NULL,
+    data_cadastro timestamp without time zone NOT NULL,
+    status integer NOT NULL
+);
+
+
+ALTER TABLE aluno OWNER TO postgres;
+
+--
+-- TOC entry 177 (class 1259 OID 27750)
+-- Name: aluno_id_aluno_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE aluno_id_aluno_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE aluno_id_aluno_seq OWNER TO postgres;
+
+--
+-- TOC entry 2038 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: aluno_id_aluno_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE aluno_id_aluno_seq OWNED BY aluno.id_aluno;
+
+
+--
+-- TOC entry 176 (class 1259 OID 27726)
+-- Name: cidade; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cidade (
+    id_cidade integer NOT NULL,
+    nome character varying(255) NOT NULL,
+    cep character varying(10) NOT NULL,
+    estado integer NOT NULL
+);
+
+
+ALTER TABLE cidade OWNER TO postgres;
+
+--
+-- TOC entry 175 (class 1259 OID 27724)
+-- Name: cidade_id_cidade_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE cidade_id_cidade_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE cidade_id_cidade_seq OWNER TO postgres;
+
+--
+-- TOC entry 2039 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: cidade_id_cidade_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE cidade_id_cidade_seq OWNED BY cidade.id_cidade;
+
+
+--
+-- TOC entry 180 (class 1259 OID 27797)
+-- Name: pais; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE pais (
+    id_pais integer NOT NULL,
+    id_aluno integer,
+    nome character varying(255) NOT NULL,
+    cpf character varying(11) NOT NULL,
+    rg character varying(11) NOT NULL,
+    profissao character varying(255) NOT NULL,
+    celular character varying(11) NOT NULL,
+    data_cadastro timestamp without time zone NOT NULL,
+    status integer NOT NULL
+);
+
+
+ALTER TABLE pais OWNER TO postgres;
+
+--
+-- TOC entry 179 (class 1259 OID 27795)
+-- Name: pais_id_pais_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE pais_id_pais_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE pais_id_pais_seq OWNER TO postgres;
+
+--
+-- TOC entry 2040 (class 0 OID 0)
+-- Dependencies: 179
+-- Name: pais_id_pais_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE pais_id_pais_seq OWNED BY pais.id_pais;
+
+
+--
+-- TOC entry 174 (class 1259 OID 27710)
+-- Name: usuario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE usuario (
+    id_usuario integer NOT NULL,
+    nome character varying(255) NOT NULL,
+    cpf character varying(11) NOT NULL,
+    sexo integer NOT NULL,
+    telefone character varying(11),
+    cidade character varying(255) NOT NULL,
+    email character varying(255) NOT NULL,
+    senha character varying(50) NOT NULL,
+    data_cadastro timestamp without time zone NOT NULL,
+    status integer NOT NULL
+);
+
+
+ALTER TABLE usuario OWNER TO postgres;
+
+--
+-- TOC entry 173 (class 1259 OID 27708)
+-- Name: usuario_id_usuario_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE usuario_id_usuario_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE usuario_id_usuario_seq OWNER TO postgres;
+
+--
+-- TOC entry 2041 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: usuario_id_usuario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE usuario_id_usuario_seq OWNED BY usuario.id_usuario;
+
+
+--
+-- TOC entry 1901 (class 2604 OID 27755)
+-- Name: id_aluno; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY aluno ALTER COLUMN id_aluno SET DEFAULT nextval('aluno_id_aluno_seq'::regclass);
+
+
+--
+-- TOC entry 1900 (class 2604 OID 27729)
+-- Name: id_cidade; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY cidade ALTER COLUMN id_cidade SET DEFAULT nextval('cidade_id_cidade_seq'::regclass);
+
+
+--
+-- TOC entry 1902 (class 2604 OID 27800)
+-- Name: id_pais; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY pais ALTER COLUMN id_pais SET DEFAULT nextval('pais_id_pais_seq'::regclass);
+
+
+--
+-- TOC entry 1899 (class 2604 OID 27713)
+-- Name: id_usuario; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY usuario ALTER COLUMN id_usuario SET DEFAULT nextval('usuario_id_usuario_seq'::regclass);
+
+
+--
+-- TOC entry 2027 (class 0 OID 27752)
+-- Dependencies: 178
+-- Data for Name: aluno; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO aluno (id_aluno, id_cidade, nome, cpf, rg, sexo, data_nascimento, telefone, logradouro, bairro, numero, matricula, idade, data_cadastro, status) VALUES (1, 1, 'Fernando leite', '03107364126', '0123123123', 1, '1989-12-09', '6791231644', 'Av Tamandaré', 'Vila Marli', '4691', '1000102021', 27, '2017-08-02 20:16:22.048663', 1);
+INSERT INTO aluno (id_aluno, id_cidade, nome, cpf, rg, sexo, data_nascimento, telefone, logradouro, bairro, numero, matricula, idade, data_cadastro, status) VALUES (2, 1, 'Arthur Leite', '12312312311', '1231211', 1, '2014-01-13', '6791231644', 'Av Tamandaré', 'Vila Marli', '345', '1231231', 3, '2017-08-02 20:45:13.931509', 1);
+INSERT INTO aluno (id_aluno, id_cidade, nome, cpf, rg, sexo, data_nascimento, telefone, logradouro, bairro, numero, matricula, idade, data_cadastro, status) VALUES (4, 1, 'Fabio Leite', '1231231411', '11221211', 1, '1986-12-11', '6730000000', 'Av Tamandaré', 'Vila Nasser', '4691', '10001020213', 30, '2017-07-02 22:57:52.806188', 1);
+INSERT INTO aluno (id_aluno, id_cidade, nome, cpf, rg, sexo, data_nascimento, telefone, logradouro, bairro, numero, matricula, idade, data_cadastro, status) VALUES (3, 2, 'Leticia Auxiliadora', '01401501617', '1231211', 2, '1994-10-16', '67981692327', 'Av Tamandare', '4453', '1233', '1000102021', 27, '0001-01-01 00:00:00', 1);
+INSERT INTO aluno (id_aluno, id_cidade, nome, cpf, rg, sexo, data_nascimento, telefone, logradouro, bairro, numero, matricula, idade, data_cadastro, status) VALUES (5, 1, 'Pedro Luiz ', '5223525554', '12313', 1, '1976-12-09', '6730000000', 'Av Tamandaré', 'Vila Nasser', '4705', '1000102021', 53, '0001-01-01 00:00:00', 1);
+
+
+--
+-- TOC entry 2042 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: aluno_id_aluno_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('aluno_id_aluno_seq', 5, true);
+
+
+--
+-- TOC entry 2025 (class 0 OID 27726)
+-- Dependencies: 176
+-- Data for Name: cidade; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO cidade (id_cidade, nome, cep, estado) VALUES (1, 'Campo Grande', '79118500', 12);
+INSERT INTO cidade (id_cidade, nome, cep, estado) VALUES (3, 'Ponta Pora', '7912312', 12);
+INSERT INTO cidade (id_cidade, nome, cep, estado) VALUES (2, 'Dourados', '79123122', 12);
+INSERT INTO cidade (id_cidade, nome, cep, estado) VALUES (4, 'Tres Lagoas', '79798822', 12);
+INSERT INTO cidade (id_cidade, nome, cep, estado) VALUES (5, 'Fátima do Sul', '79123124', 12);
+
+
+--
+-- TOC entry 2043 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: cidade_id_cidade_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('cidade_id_cidade_seq', 5, true);
+
+
+--
+-- TOC entry 2029 (class 0 OID 27797)
+-- Dependencies: 180
+-- Data for Name: pais; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO pais (id_pais, id_aluno, nome, cpf, rg, profissao, celular, data_cadastro, status) VALUES (1, 1, 'Zilda Martins da Silva', '12312312311', '1231211', 'Dona do Lar', '6791231644', '2017-08-02 23:33:20.159905', 1);
+INSERT INTO pais (id_pais, id_aluno, nome, cpf, rg, profissao, celular, data_cadastro, status) VALUES (2, 1, 'Zilda Martins da Silva', '12312312311', '1231211', 'Dona do Lar', '6791231644', '2017-08-02 23:34:13.646734', 1);
+INSERT INTO pais (id_pais, id_aluno, nome, cpf, rg, profissao, celular, data_cadastro, status) VALUES (3, 4, 'ivan leite de oliveira', '131231231', '1111', 'Comerciante', '67992020300', '2017-08-02 23:36:38.825037', 1);
+
+
+--
+-- TOC entry 2044 (class 0 OID 0)
+-- Dependencies: 179
+-- Name: pais_id_pais_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pais_id_pais_seq', 3, true);
+
+
+--
+-- TOC entry 2023 (class 0 OID 27710)
+-- Dependencies: 174
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO usuario (id_usuario, nome, cpf, sexo, telefone, cidade, email, senha, data_cadastro, status) VALUES (1, 'fernando leite de oliveira', '03107364126', 1, '6791231644', 'CAMPO GRANDE', 'ferelao@gmail.com', '123', '2017-08-01 20:35:20.414754', 1);
+INSERT INTO usuario (id_usuario, nome, cpf, sexo, telefone, cidade, email, senha, data_cadastro, status) VALUES (2, 'leticia auxiliadora domingos dos santos leite', '01401501617', 2, '67981692327', 'Campo Grande', 'leticiaaauxiliadora@gmail.com', '123', '2017-08-02 09:45:07.82109', 1);
+
+
+--
+-- TOC entry 2045 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: usuario_id_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('usuario_id_usuario_seq', 2, true);
+
+
+--
+-- TOC entry 1908 (class 2606 OID 27757)
+-- Name: aluno_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY aluno
+    ADD CONSTRAINT aluno_pkey PRIMARY KEY (id_aluno);
+
+
+--
+-- TOC entry 1906 (class 2606 OID 27731)
+-- Name: cidade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cidade
+    ADD CONSTRAINT cidade_pkey PRIMARY KEY (id_cidade);
+
+
+--
+-- TOC entry 1910 (class 2606 OID 27802)
+-- Name: pais_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY pais
+    ADD CONSTRAINT pais_pkey PRIMARY KEY (id_pais);
+
+
+--
+-- TOC entry 1904 (class 2606 OID 27715)
+-- Name: usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_pkey PRIMARY KEY (id_usuario);
+
+
+--
+-- TOC entry 1911 (class 2606 OID 27758)
+-- Name: aluno_id_cidade_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY aluno
+    ADD CONSTRAINT aluno_id_cidade_fkey FOREIGN KEY (id_cidade) REFERENCES cidade(id_cidade);
+
+
+--
+-- TOC entry 1912 (class 2606 OID 27803)
+-- Name: pais_id_aluno_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY pais
+    ADD CONSTRAINT pais_id_aluno_fkey FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno);
+
+
+--
+-- TOC entry 2036 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2017-08-03 01:51:53
+
+--
+-- PostgreSQL database dump complete
+--
+
