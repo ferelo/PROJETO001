@@ -1,0 +1,114 @@
+﻿@model Model.Logic.Model.aluno
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+
+<form action="/Aluno/Editar" method="post" class="dark-matter" style="max-width:1000px;">
+    <h1>
+        Tela de Cadastro de Aluno
+
+    </h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+
+        @Html.ValidationSummary("Por Favor, resolver o(s) seguinte(s) erro(s):")
+
+    }
+    else if (!String.IsNullOrEmpty(ViewBag.Sucesso))
+    {
+        <div class="sucesso">
+            @Html.Raw(ViewBag.Sucesso)
+        </div>
+    }
+    @Html.HiddenFor(model => model.id_aluno)
+    @Html.HiddenFor(model => model.status)
+
+    <label>
+        <span>Nome do Aluno :</span>
+        <input id="nome" type="text" name="nome" value="@Model.nome" />
+    </label>
+
+    <label>
+        <span>Cpf :</span>
+        <input id="cpf" type="text" name="cpf" value="@Model.cpf" />
+    </label>
+
+    <label>
+        <span>RG :</span>
+        <input id="rg" type="text" name="rg" value="@Model.rg" />
+    </label>
+
+    <label>
+        <span>Sexo :</span><select name="sexo">
+            @if (Model.sexo == 1)
+            {
+                <option value="1" selected>Masculino</option>}
+            else
+            {
+                <option value="1">Masculino</option>
+            }
+
+            @if (Model.sexo == 2)
+            {
+                <option value="2" selected>Feminino</option>}
+            else
+            {
+                <option value="2">Feminino</option>
+            }
+            >
+        </select>
+    </label>
+
+    <label>
+        <span>Data de nascimento :</span>
+        <input id="data_nascimento" type="text" name="data_nascimento" value="@Model.data_nascimento.ToString("dd/MM/yyyy")"/>
+    </label>
+
+    <label>
+        <span>Cidade :</span>
+        @Html.DropDownList("id_cidade", null, new { @class = "text" })
+    </label>
+
+    <label>
+        <span>Telefone :</span>
+        <input id="telefone" type="text" name="telefone" value="@Model.telefone" />
+    </label>
+
+    <label>
+        <span>Logradouro :</span>
+        <input id="logradouro" type="text" name="logradouro" value="@Model.logradouro" />
+    </label>
+
+    <label>
+        <span>Bairro :</span>
+        <input id="bairro" type="text" name="bairro" value="@Model.bairro" />
+    </label>
+
+    <label>
+        <span>numero :</span>
+        <input id="numero" type="text" name="numero" value="@Model.numero"/>
+    </label>
+
+
+    <label>
+        <span>matricula :</span>
+        <input id="matricula" type="text" name="matricula" value="@Model.matricula" />
+    </label>
+
+
+    <label>
+        <span>idade :</span>
+        <input id="idade" type="number" name="idade" min="1" max="130" value="@Model.idade"/>
+    </label>
+
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="Salvar" />
+        <input type="button" class="button" onclick="javascript:location.href = '/Aluno/Index'" value="Voltar">
+    </label>
+</form>
+
+

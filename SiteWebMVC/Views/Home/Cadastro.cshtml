@@ -1,0 +1,141 @@
+﻿@model Model.Logic.Model.usuario
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/Home/CadastroSalvo" method="post" class="dark-matter">
+    <h1>
+        Tela de Cadastro 
+
+    </h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+
+        @Html.ValidationSummary("Por Favor, resolver o(s) seguinte(s) erro(s):")
+
+    }
+    else if (!String.IsNullOrEmpty(ViewBag.Sucesso))
+    {
+        <div class="sucesso">
+            @Html.Raw(ViewBag.Sucesso)
+        </div>
+    }
+
+    <label>
+        <span>Nome do Usuario :</span>
+        <input id="nome" type="text" name="nome" placeholder="Informe seu nome completo" />
+    </label>
+
+    <label>
+        <span>Cpf :</span>
+        <input id="cpf" type="text" name="cpf" placeholder="Digite seu cpf" />
+    </label>
+
+    <label>
+        <span>Sexo :</span><select name="sexo">
+            <option value="1">Masculino</option>
+            <option value="2">Feminino</option>
+        </select>
+    </label>
+
+    <label>
+        <span>Telefone :</span>
+        <input id="telefone" type="text" name="telefone" placeholder="Digite seu Telefone" />
+    </label>
+
+    <label>
+        <span>Cidade :</span>
+        <input id="cidade" type="text" name="cidade" placeholder="Digite sua Cidade" />
+    </label>
+
+    <label>
+        <span>E-mail :</span>
+        <input id="email" type="email" name="email" placeholder="Digite seu E-mail" />
+    </label>
+
+
+    <label>
+        <span>Senha :</span>
+        <input id="senha" type="password" name="senha" placeholder="Digite sua Senha" />
+    </label>
+    @*<label>
+            <span>Message :</span>
+            <textarea id="message" name="message" placeholder="Your Message to Us"></textarea>
+        </label>*@
+    @*<label>
+            <span>Subject :</span><select name="selection">
+                <option value="Job Inquiry">Job Inquiry</option>
+                <option value="General Question">General Question</option>
+            </select>
+        </label>*@
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="Salvar" />
+        <input type="button" class="button" onclick="javascript:location.href = '/Home/Index'" value="Voltar">
+    </label>
+</form>
+
+
+
+@*<div class="page clearfix">
+
+    @using (Html.BeginForm("CadastroSalvo", "Home", FormMethod.Post))
+    {
+        if (!ViewData.ModelState.IsValid)
+        {           
+                @Html.ValidationSummary("Por Favor, resolver o(s) seguinte(s) erro(s):")
+        }
+
+
+        @Html.Label("Nome: ", new { @class = "cols cols-6" })
+        <div class="cols cols-6">
+            @Html.TextBoxFor(model => model.nome)
+        </div>
+
+        @Html.Label("CPF: ", new { @class = "cols cols-6" })
+        <div class="cols cols-6">
+            @Html.TextBoxFor(model => model.cpf)
+
+        </div>
+
+        @Html.Label("Sexo: ", new { @class = "cols cols-6" })
+        <div class="cols cols-6">
+            @Html.TextBoxFor(model => model.sexo)
+        </div>
+
+        @Html.Label("Telefone: ", new { @class = "cols cols-6" })
+        <div class="cols cols-6">
+            @Html.TextBoxFor(model => model.telefone)
+        </div>
+
+        @Html.Label("Cidade: ", new { @class = "cols cols-6" })
+        <div class="cols cols-6">
+            @Html.TextBoxFor(model => model.cidade)
+        </div>
+
+        @Html.Label("E-mail", new { @class = "cols cols-6" })
+        <div class="cols cols-6">
+            @Html.TextBoxFor(model => model.email)
+        </div>
+
+        @Html.Label("Senha", new { @class = "cols cols-6" })
+        <div class="cols cols-6">
+            @Html.PasswordFor(model => model.senha)
+        </div>
+
+            <div class="cols cols-12">
+                <button type="submit" class="btnSalvar">Salvar</button>
+            </div>
+
+            <div class="cols cols-12-5x">
+                <a href="/Home/Index">Voltar</a>
+            </div>
+
+
+
+    }
+
+
+</div>  .page*@ 

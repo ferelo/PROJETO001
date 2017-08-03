@@ -1,0 +1,60 @@
+﻿@model Model.Logic.Model.pais
+@{
+    ViewBag.Title = "Criar";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+
+<form action="/Aluno/pais" method="post" class="dark-matter" style="max-width:1000px;">
+    <h1>
+        Tela de Cadastro dos Pais do Aluno 
+
+    </h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+
+        @Html.ValidationSummary("Por Favor, resolver o(s) seguinte(s) erro(s):")
+
+    }
+    else if (!String.IsNullOrEmpty(ViewBag.Sucesso))
+    {
+        <div class="sucesso">
+            @Html.Raw(ViewBag.Sucesso)
+        </div>
+    }
+    @Html.HiddenFor(x=>x.id_aluno)
+
+    <label>
+        <span>Nome do Aluno :</span>
+        <input id="nome" type="text" name="nome" placeholder="Informe o nome completo" />
+    </label>
+
+    <label>
+        <span>Cpf :</span>
+        <input id="cpf" type="text" name="cpf" placeholder="Digite o cpf" />
+    </label>
+
+    <label>
+        <span>RG :</span>
+        <input id="rg" type="text" name="rg" placeholder="Digite o rg" />
+    </label>
+
+    <label>
+        <span>Profissão :</span>
+        <input id="profissao" type="text" name="profissao" />
+    </label>
+
+    <label>
+        <span>Celular :</span>
+        <input id="celular" type="text" name="celular" placeholder="Digite o Telefone" />
+    </label>
+
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="Salvar" />
+        <input type="button" class="button" onclick="javascript:location.href = '/Aluno/Index'" value="Voltar">
+    </label>
+</form>
+
+

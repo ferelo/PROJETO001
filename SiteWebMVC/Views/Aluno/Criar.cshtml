@@ -1,0 +1,98 @@
+﻿@model Model.Logic.Model.aluno
+@{
+    ViewBag.Title = "Criar";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+
+<form action="/Aluno/Criar" method="post" class="dark-matter" style="max-width:1000px;">
+    <h1>
+        Tela de Cadastro de Aluno
+
+    </h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+
+        @Html.ValidationSummary("Por Favor, resolver o(s) seguinte(s) erro(s):")
+
+    }
+    else if (!String.IsNullOrEmpty(ViewBag.Sucesso))
+    {
+        <div class="sucesso">
+            @Html.Raw(ViewBag.Sucesso)
+        </div>
+    }
+
+    <label>
+        <span>Nome do Aluno :</span>
+        <input id="nome" type="text" name="nome" placeholder="Informe o nome completo" />
+    </label>
+
+    <label>
+        <span>Cpf :</span>
+        <input id="cpf" type="text" name="cpf" placeholder="Digite o cpf" />
+    </label>
+
+    <label>
+        <span>RG :</span>
+        <input id="rg" type="text" name="rg" placeholder="Digite o rg" />
+    </label>
+
+    <label>
+        <span>Sexo :</span><select name="sexo">
+            <option value="1">Masculino</option>
+            <option value="2">Feminino</option>
+        </select>
+    </label>
+
+    <label>
+        <span>Data de nascimento :</span>
+        <input id="data_nascimento" type="date" name="data_nascimento" />
+    </label>
+
+    <label>
+        <span>Cidade :</span>
+        @Html.DropDownList("id_cidade", null, new { @class = "text" })        
+    </label>
+
+    <label>
+        <span>Telefone :</span>
+        <input id="telefone" type="text" name="telefone" placeholder="Digite o Telefone" />
+    </label>
+
+    <label>
+        <span>Logradouro :</span>
+        <input id="logradouro" type="text" name="logradouro" placeholder="Digite o logradouro ( ex: Av Brasil / Rua Brasil)" />
+    </label>
+
+    <label>
+        <span>Bairro :</span>
+        <input id="bairro" type="text" name="bairro" placeholder="Digite o bairro" />
+    </label>
+
+    <label>
+        <span>numero :</span>
+        <input id="numero" type="text" name="numero" placeholder="Digite o numero do endereço" />
+    </label>
+
+
+    <label>
+        <span>matricula :</span>
+        <input id="matricula" type="text" name="matricula" placeholder="Digite a matricula" />
+    </label>
+
+
+    <label>
+        <span>idade :</span>
+        <input id="idade" type="number" name="idade" min="1" max="130" />
+    </label>
+
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="Salvar" />
+        <input type="button" class="button" onclick="javascript:location.href = '/Aluno/Index'" value="Voltar">
+    </label>
+</form>
+
+

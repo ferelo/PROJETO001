@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+
+
+
+<div class="dark-matter" style="max-width:1000px;">
+    <h1>Cadastro de Aluno</h1>
+
+
+    <label>
+        <span>Codigo :</span>
+        <input id="id_aluno" type="text" name="id_aluno" placeholder="Informe o codigo" />
+    </label>
+
+    <label>
+        <span>Nome do Usuario :</span>
+        <input id="nome" type="text" name="nome" placeholder="Informe seu nome completo" />
+    </label>
+
+    <label>
+        <span>Cpf :</span>
+        <input id="cpf" type="text" name="cpf" placeholder="Digite seu cpf" />
+    </label>
+
+    <label>
+        <span>Data de nascimento :</span>
+        <input id="data_nascimento" type="date" name="data_nascimento" style="max-width: 120px;">
+    </label>
+
+
+    <label>
+        <span>Data de cadastro :</span>
+        <input id="data_cadastro" type="date" name="data_cadastro" style="max-width: 120px;" />
+    </label>
+
+    <label>
+        <span>&nbsp;</span>
+        <input type="button" class="button" value="Pesquisar" />
+    </label>
+</div>
+
+<div class="dark-matter" style="max-width: 1000px; margin-top:10px;">
+    <label>
+        <input type="button" class="button" value="Novo" onclick="Incluir();" />
+        <input type="button" class="button" value="Editar" onclick="Editar();" />
+        <input type="button" class="button" value="Cadastro Pais" onclick="Pais();" />
+    </label>
+</div>
+<div class="dark-matter" style="max-width: 1000px; margin-top:10px;">
+    <table id="gridAluno" class="easyui-datagrid" url="/Aluno/GridAluno/" toolbar="#toolbar"
+           pagination="true" rownumbers="false" fitcolumns="true" singleselect="true">
+        <thead>
+            <tr>
+                <th field="id_aluno" width="20" sortable="true">
+                    ID
+                </th>
+                <th field="nome" width="230" sortable="true">
+                    Nome
+                </th>
+                <th field="cpf" width="120" sortable="true">
+                    CPF
+                </th>
+                <th field="telefone" width="120" sortable="true">
+                    telefone
+                </th>
+                <th field="data_cadastro" width="120" sortable="true">
+                    Data de cadastro
+                </th>
+                <th field="cidade_" width="120" sortable="true">
+                    Cidade
+                </th>
+                <th field="sexo" width="120" sortable="true">
+                    Sexo
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+
+<script type="text/javascript">
+
+    function Pesquisar() {
+        jQuery('#gridAluno').datagrid('load', {
+            id_aluno: document.getElementById("id_aluno").value,
+            nome: document.getElementById("nome").value,
+            cpf: document.getElementById("cpf").value,
+            data_nascimento: document.getElementById("data_nascimento").value,
+            data_cadastro: document.getElementById("data_cadastro").value
+        });
+    }
+
+    function Incluir() {
+        location.href = "/Aluno/Criar";
+    }
+
+    function Pais() {
+        var dados = $('#gridAluno').datagrid('getSelected');
+        location.href = "/Aluno/Pais/" + dados.id_aluno;
+    }
+
+    function Editar() {
+        var dados = $('#gridAluno').datagrid('getSelected');
+        location.href = "/Aluno/Editar/" + dados.id_aluno;
+    }
+
+</script>

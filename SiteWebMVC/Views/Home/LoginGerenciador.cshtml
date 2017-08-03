@@ -1,0 +1,79 @@
+﻿@model Model.Logic.Model.usuario
+@{
+    ViewBag.Title = "LoginGerenciador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/Home/LoginGerenciador" method="post" class="dark-matter">
+    <h1>
+        Tela de Login
+       
+    </h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+
+    @Html.ValidationSummary("Por Favor, resolver o(s) seguinte(s) erro(s):")
+
+    }
+
+    <label>
+        <span>E-mail :</span>
+        <input id="email" type="text" name="email" placeholder="Informe seu E-mail" />
+    </label>
+
+    <label>
+        <span>Senha :</span>
+        <input id="senha" type="password" name="senha" placeholder="Digite sua senha" />
+    </label>
+
+    @*<label>
+        <span>Message :</span>
+        <textarea id="message" name="message" placeholder="Your Message to Us"></textarea>
+    </label>*@
+    @*<label>
+        <span>Subject :</span><select name="selection">
+            <option value="Job Inquiry">Job Inquiry</option>
+            <option value="General Question">General Question</option>
+        </select>
+    </label>*@
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="Entrar" />
+        <input type="button" class="button"  onclick="javascript:location.href = '/Home/Cadastro'" value="Me inscrever!">       
+    </label>
+</form>
+
+
+@*<section class="canvas">
+    <div class="page clearfix">
+
+        @using (Html.BeginForm("LoginGerenciador", "Home", FormMethod.Post, new { @class = "dark-matter" }))
+        {
+
+
+            @Html.Label("E-mail do Usuário", new { @class = "cols cols-6" })
+            <div class="cols cols-6">
+                @Html.TextBoxFor(model => model.email)
+
+            </div>
+
+            @Html.Label("Senha", new { @class = "cols cols-6" })
+            <div class="cols cols-6">
+                @Html.PasswordFor(model => model.senha)
+
+            </div>
+
+
+            <div class="cols cols-6">
+
+                <button type="submit" class="btn btn-2">Entrar</button>
+                <a class="btn btn-2" href="/Home/Cadastro">Me inscrever!</a>
+                
+            </div>
+
+        }
+
+
+    </div>  .page 
+</section>*@

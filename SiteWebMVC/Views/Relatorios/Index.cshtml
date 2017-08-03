@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+<div class="dark-matter" style="max-width: 1000px; margin-top:10px;">
+    <h1>Relatórios</h1>
+    <label>
+        <input type="button" class="button" value="Relatorio de Alunos" onclick="Alunos();" />
+        <input type="button" class="button" value="Relatorio de Cidade" onclick="Cidade();" />
+        @*<input type="button" class="button" value="Relatorio de Alunos por Cidade" onclick="AlunoCidade();" />*@
+    </label>
+</div>
+
+<script type="text/javascript">
+
+    function Alunos() {
+        location.href = "/Relatorios/Alunos/";
+    }
+
+    function Cidade() {
+        location.href = "/Relatorios/Cidade/";
+    }
+
+    //function AlunoCidade() {
+    //    location.href = "/Relatorios/AlunoCidade/";
+    //}
+
+</script>

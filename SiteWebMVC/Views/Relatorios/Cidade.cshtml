@@ -1,0 +1,84 @@
+﻿@model Model.Logic.Model.cidade
+@using Model.Logic.Model
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cidades</title>
+</head>
+<STYLE TYPE="text/css" MEDIA="print">
+    .noprint {
+        display: none;
+    }
+</STYLE>
+<body>
+    <form id="form1" runat="server">
+        <table class="noprint" align="center" width="85%" border="2" bordercolor="#000000">
+            <tr>
+                <td align="center" CLASS="clsTableBreak" COLSPAN="9">
+                    <div align="center" class="noprint">
+                        <br>
+                        <INPUT type="Button" class="clsButton" value="Imprimir" onclick="javascript:window.print();">
+                        <INPUT type="button" class="clsButton" onclick="javascript:location.href = '/Relatorios/Index'" value="Voltar">
+                        <br><br>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <table align="center" width="85%" border="2">
+                <tr>
+                    <td align="center" colspan="2" style="color: Red; font-size: 150%">
+                        <u><b>RELATÓRIO DE CIDADES</b></u>
+                    </td>
+                </tr>
+                <tr></tr>
+            </table>
+            <table align="center" width="85%" border="2">
+                <tr align="center">
+                    <td align="center" style="width: 40%">
+                        <b>NOME</b>
+                    </td>
+                    <td align="center" style="width: 20%">
+                        <b>CEP</b>
+                    </td>
+                    <td align="center" style="width: 20%">
+                        <b>ESTADO</b>
+                    </td>
+                </tr>
+                @foreach (cidade d in ViewBag.Cidades)
+                {
+                    <tr align="center">
+                        <td align="left" style="width: 40%">
+                            @d.nome
+                        </td>
+                        <td align="right" style="width: 18%">
+                            @d.cep
+                        </td>
+                        <td align="right" style="width: 18%">
+                            @d.estado
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <table class="noprint" align="center" width="85%" border="2" bordercolor="#000000">
+            <tr>
+                <td align="center" CLASS="clsTableBreak" COLSPAN="9">
+                    <div align="center" class="noprint">
+                        <br>
+                        <INPUT type="Button" class="clsButton" value=" Imprimir " onclick="javascript: window.print();"> 
+                        <INPUT type="button" class="clsButton" onclick="javascript:location.href = '/Relatorios/Index'" value="Voltar">                    
+                        <br><br>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+    google.load('visualization', '1', { packages: ['corechart'] });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '/Graficos/GerarGrafico',
+            data: '{}',
+            success:
+                function (response) {
+                    drawchart(response.listaGrid);
+                },
+            error: function () {
+                alert("Erro ao carregar dados! Tente novamente.");
+            }
+        });
+
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '/Graficos/GerarGraficoDataCadastro',
+            data: '{}',
+            success:
+                function (response) {
+                    drawchart2(response.listaGrid);
+                },
+            error: function () {
+                alert("Erro ao carregar dados! Tente novamente.");
+            }
+        });
+    })
+    function drawchart(dataValues) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Column Name');
+        //data.addColumn('string', 'Column Name');
+        data.addColumn('number', 'Column Value');
+        for (var i = 0; i < dataValues.length; i++) {
+            data.addRow([dataValues[i].info, dataValues[i].qtd_aluno]);
+        }
+        new google.visualization.BarChart(document.getElementById('chartdiv')).
+            draw(data, { title: "Grafico por Aluno/Cidade" });
+    }
+
+    function drawchart2(dataValues) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Column Name');
+        //data.addColumn('string', 'Column Name');
+        data.addColumn('number', 'Column Value');
+        for (var i = 0; i < dataValues.length; i++) {
+            data.addRow([dataValues[i].info, dataValues[i].qtd_aluno]);
+        }
+        new google.visualization.LineChart(document.getElementById('chartdiv2')).
+            draw(data, { title: "Grafico por Aluno/Data Cadastro" });
+    }
+</script>
+
+
+<div class="dark-matter" style="max-width:1000px;">
+    <form id="form1" runat="server">
+        <h2>Grafico por Aluno/Cidade</h2>
+        <hr />
+        <div id="chartdiv" style="width: 600px; height: 350px;">
+        </div>
+    </form>
+
+    <form id="form2" runat="server">
+        <h2>Grafico por Aluno/Data Cadastro</h2>
+        <hr />
+        <div id="chartdiv2" style="width: 600px; height: 350px;">
+        </div>
+    </form>
+</div>

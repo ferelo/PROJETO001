@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{4604E737-C17B-4205-8F6B-66846288CCD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{F19F5E45-76D3-40AC-9A70-67E2A6152087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWebMVC", "SiteWebMVC\SiteWebMVC.csproj", "{852F5B9D-A045-44E9-90CD-435F2027FB3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4604E737-C17B-4205-8F6B-66846288CCD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4604E737-C17B-4205-8F6B-66846288CCD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4604E737-C17B-4205-8F6B-66846288CCD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4604E737-C17B-4205-8F6B-66846288CCD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F19F5E45-76D3-40AC-9A70-67E2A6152087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F19F5E45-76D3-40AC-9A70-67E2A6152087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F19F5E45-76D3-40AC-9A70-67E2A6152087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F19F5E45-76D3-40AC-9A70-67E2A6152087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852F5B9D-A045-44E9-90CD-435F2027FB3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852F5B9D-A045-44E9-90CD-435F2027FB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852F5B9D-A045-44E9-90CD-435F2027FB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852F5B9D-A045-44E9-90CD-435F2027FB3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://maximasoft.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Model\\Model.csproj
+		SccProjectName1 = Model
+		SccLocalPath1 = Model
+		SccProjectUniqueName2 = Repository\\Repository.csproj
+		SccProjectName2 = Repository
+		SccLocalPath2 = Repository
+		SccProjectUniqueName3 = SiteWebMVC\\SiteWebMVC.csproj
+		SccProjectName3 = SiteWebMVC
+		SccLocalPath3 = SiteWebMVC
+	EndGlobalSection
+EndGlobal

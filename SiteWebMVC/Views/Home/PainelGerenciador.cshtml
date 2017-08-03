@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "PainelGerenciador";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+<div class="conteudo_pagina">
+    <h1>PROJETO PARA AVALIAÇÃO DO CANDIDATO:</h1>
+
+    <p>Objetivo:</p>
+    <p>Criar um sistema online de cadastro de alunos</p>
+    <p>Detalhes do Projeto:</p>
+    <p>
+        1 - Criar uma tela de login para acessar o sistema;
+        1a) A tela de login deverá fazer as validações de acesso utilizado uma tabela de
+        usuários. (código, nome, cpf, sexo, telefone, data de cadastro, cidade, email e senha).
+        Colocar uma opção “Me inscrever” onde será possível preencher um form com o
+        cadastro de nosso usuários.
+        1b) Usuário será capaz de logar no sistema, tendo acesso a todas funcionalidades:
+    </p>
+    <p>
+        2 - Na tela principal deverá conter um menu com as seguintes opções:
+        Cadastro de Alunos;
+        Cadastro de Cidades;
+        Alunos por Cidade (mestre / detalhe);
+        Relatórios;
+        Gráficos;
+        2.a – No menu Cadastro de Alunos:
+        a1) Ao abrir deverá mostrar os alunos já cadastrados (código, come, cpf, sexo,
+        telefone,data de cadastro, cidade ).
+        Permitindo ordenação por ordem crescente e decrescente (alfabética ou numérica
+        conforme o caso)
+        a2) Fazer um CRUD com as seguintes informações do aluno:
+        nome, rg, cpf, data de nascimento, endereço completo, matrícula, idade, sexo, e-mail e
+        telefones, data do cadastro (pegando a data atual).
+        Também deverá conter uma opção para cadastrar o pai e a mãe contendo nome, rg,
+        cpf, profissão, celular, data do cadastro (pegando a data atual) .
+        Separar um campo que sempre será preenchido apenas pelo sistema
+        Com data da última modificação no cadastro e o nome do usuário que a efetuou.
+        a3) Implementar uma pesquisa de alunos com os seguintes funcionalidades:
+        Filtrar por: código, nome, cpf, data de nascimento e data de cadastro.
+        O resultado deverá permitir paginação (com 10 registros por página) e também a
+        ordenação dos registros por ordem crescente e decrescente (alfabética ou numérica
+        conforme o caso);
+        2.b - No menu Cadastro de Cidades:
+        b1) Ao abrir deverá mostrar as cidades cadastradas (em lista) com todos seus dados;
+        b2) Fazer um CRUD com as seguintes informações:
+        nome da cidade, estado, cep.
+        b3) Fazer uma pesquisa de cidade utilizando todos os campos como filtro (código,
+        nome da cidade, estado, cep) com paginação de cinco em cinco e permitindo
+        ordenação por ordem crescente e decrescente (alfabética ou numérica conforme o
+        caso);
+        2.c - No menu Alunos de Cidades:
+        c1) Mostrar uma tabela com todas as cidades cadastradas e ao clicar em cada registro
+        deveram aparecer em uma outra tabela os alunos que são daquela cidade.
+        c2) Implementar a mesma pesquisa das cidades aqui.
+        2.d – No menu Relatórios
+        d1) Implementar os seguintes relatórios:
+        Alunos, Cidades e Alunos por cidade (contendo todas as informações dos alunos e das
+        cidades).
+        d2) Implementar gráfico de alunos cadastrados por data/hora e alunos por cidades.
+        Tecnologias que deverão ser empregadas:
+        C# .Net;
+        Framework MVC (4, 5 ou 6);
+        Razor;, EntityFramework 5 ou 6; Banco de Dados Sql Server ou PostgreeSQL (Postgree será considerado um diferencial); Html 5; CSS3 JavaScript; JQuery; Google Charts;
+    </p>
+    <p>
+        ##################################################################
+        MUITO IMPORTANTE SEGUIR ESTA ETAPA OU PROJETO SERÁ
+        DESCLASSIFICADO
+        Restrições:
+        Escrever seu próprio CSS
+        Não usar Bootstrap, Materialize, Polimer ou similares. Para que seja possível a
+        avaliação de seu CSS.
+        Considerações Finais:
+        O projeto deverá ter um visual clean e com boas práticas de usabilidade, OO e SOLID.
+        Visando a usabilidade;
+        Não utilizar scafold, Identity e code-first;
+    </p>
+</div>

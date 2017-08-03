@@ -1,0 +1,43 @@
+﻿
+<h2>Alunos</h2>
+
+@model Model.Logic.Model.aluno
+@{
+    ViewBag.Title = "Alunos";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+
+<div class="dark-matter" style="max-width:1000px;">
+    <h1>
+        Cidade:  @Html.Raw(ViewBag.cidade)
+
+    </h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+
+        @Html.ValidationSummary("Por Favor, resolver o(s) seguinte(s) erro(s):")
+
+    }
+    else if (!String.IsNullOrEmpty(ViewBag.Sucesso))
+    {
+        <div class="sucesso">
+            @Html.Raw(ViewBag.Sucesso)
+        </div>
+    }
+
+    @foreach (var dados in ViewBag.dados)
+    {
+        <h3>@dados.nome</h3>
+    }
+
+       <label>
+        <span>&nbsp;</span>
+        <input type="button" class="button" onclick="javascript:location.href = '/AlunoCidade/Index'" value="Voltar">
+    </label>
+</div>
+
+
+
+

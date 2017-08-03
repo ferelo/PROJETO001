@@ -1,0 +1,16 @@
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\Repository.dll.config
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\Repository.dll
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\Repository.pdb
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\EntityFramework.dll
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\EntityFramework6.Npgsql.dll
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\Model.dll
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\Npgsql.dll
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\Model.pdb
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\EntityFramework.xml
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\EntityFramework6.Npgsql.xml
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\bin\Debug\Npgsql.xml
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\obj\Debug\Repository.dll
+c:\users\maxim\onedrive\documentos\visual studio 2015\Projects\Fernando\Repository\obj\Debug\Repository.pdb

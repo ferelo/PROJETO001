@@ -1,0 +1,276 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    color: #FFF1F1;
+    font-family: 'Raleway';
+}
+
+body {
+    background: #e96b0d;
+    font-size: 2em;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 2.4em;
+    margin: 2rem 0 0.5em;
+    text-shadow: 1px 1px 0 #3A3A3A;
+}
+
+p {
+    font-size: 0.6em;
+}
+
+h1, p {
+    padding: 0 10%;
+    text-align: center;
+}
+
+p, a {
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+footer {
+    padding: 0.5em 0;
+    font-size: 0.5em;
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+    footer a {
+        color: #B2FF06;
+    }
+
+.canvas {
+    padding-top: 1px;
+    -webkit-transition: ease 0.5s all;
+    -moz-transition: ease 0.5s all;
+    -ms-transition: ease 0.5s all;
+    -o-transition: ease 0.5s all;
+    transition: ease 0.5s all;
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    width: 38px;
+    margin: 0.51em;
+}
+
+    .menu-icon span, .menu-icon:after, .menu-icon:before {
+        content: "";
+        display: block;
+        margin-top: 0.3rem;
+        border: solid 3px #fff;
+        width: 100%;
+    }
+
+    .menu-icon:hover span, .menu-icon:hover:before,
+    .menu-icon:hover:after {
+        border-color: rgba(255, 255, 255, 0.75);
+    }
+
+nav {
+    height: 100vh;
+    background: #594165;
+    font-size: 1.3rem;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    -webkit-transform: translate3d(-100%,0,0);
+    -moz-transform: translate3d(-100%,0,0);
+    -ms-transform: translate3d(-100%,0,0);
+    -o-transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0);
+}
+
+    nav ul {
+        padding-top: 3.3em;
+        margin: 0 2em;
+        list-style: none;
+    }
+
+    nav a {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 40px,0);
+        -moz-transform: translate3d(0, 40px,0);
+        -ms-transform: translate3d(0, 40px,0);
+        -o-transform: translate3d(0, 40px,0);
+        transform: translate3d(0, 40px,0) -webkit-transition: all .3s ease, opacity .2s linear;
+        -moz-transition: all .3s ease, opacity .2s linear;
+        -ms-transition: all .3s ease, opacity .2s linear;
+        -o-transition: all .3s ease, opacity .2s linear;
+        transition: all .3s ease, opacity .2s linear;
+        font-weight: 400;
+        padding: 0.5rem 1rem;
+        display: block;
+    }
+
+    nav li:nth-child(1) a {
+        -webkit-transition-delay: .4s;
+        -moz-transition-delay: .4s;
+        -ms-transition-delay: .4s;
+        -o-transition-delay: .4s;
+        transition-delay: .4s;
+    }
+
+    nav li:nth-child(2) a {
+        -webkit-transition-delay: .5s;
+        -moz-transition-delay: .5s;
+        -ms-transition-delay: .5s;
+        -o-transition-delay: .5s;
+        transition-delay: .5s;
+    }
+
+    nav li:nth-child(3) a {
+        -webkit-transition-delay: .6s;
+        -moz-transition-delay: .6s;
+        -ms-transition-delay: .6s;
+        -o-transition-delay: .6s;
+        transition-delay: .6s;
+    }
+
+    nav i {
+        display: inline-block;
+        margin-right: 0.5em;
+    }
+
+.fa-close {
+    font-weight: 100;
+    position: absolute;
+    top: 10px;
+    right: 4px;
+}
+
+#menu:checked ~ .canvas {
+    -webkit-transform: translate3d(300px,0,0);
+    -moz-transform: translate3d(300px,0,0);
+    -ms-transform: translate3d(300px,0,0);
+    -o-transform: translate3d(300px,0,0);
+    transform: translate3d(300px,0,0);
+}
+
+    #menu:checked ~ .canvas nav a {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+
+
+
+/* #### Dark Matter #### */
+.dark-matter {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    background: #555;
+    padding: 20px 30px 20px 30px;
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #D3D3D3;
+    text-shadow: 1px 1px 1px #444;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.dark-matter h1 {
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom: 1px solid #444;
+    margin: -10px -30px 30px -30px;
+}
+.dark-matter h1>span {
+    display: block;
+    font-size: 11px;
+}
+.dark-matter label {
+    display: block;
+    margin: 0px 0px 5px;
+}
+.dark-matter label>span {
+    float: left;
+    width: 20%;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.dark-matter input[type="text"], .dark-matter input[type="email"], 
+.dark-matter input[type="password"], .dark-matter input[type="date"], 
+.dark-matter input[type="number"],
+.dark-matter textarea, .dark-matter select {
+    border: none;
+    color: #525252;
+    height: 25px;
+    line-height:15px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 5px 0px 5px 5px;
+    width: 70%;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    background: #DFDFDF;
+}
+.dark-matter select {
+    background: #DFDFDF url('down-arrow.png') no-repeat right;
+    background: #DFDFDF url('down-arrow.png') no-repeat right;
+    appearance:none;
+    -webkit-appearance:none; 
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    width: 70%;
+    height: 35px;
+    color: #525252;
+    line-height: 25px;
+}
+.dark-matter textarea{
+    height:100px;
+    padding: 5px 0px 0px 5px;
+    width: 70%;
+}
+.dark-matter .button {
+    background: #FFCC02;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #585858;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    text-shadow: 1px 1px 1px #FFE477;
+    font-weight: bold;
+    box-shadow: 1px 1px 1px #3D3D3D;
+    -webkit-box-shadow:1px 1px 1px #3D3D3D;
+    -moz-box-shadow:1px 1px 1px #3D3D3D;
+}
+
+.dark-matter .button:hover {
+    color: #333;
+    background-color: #EBEBEB;
+}
+
+.sucesso {
+
+    color: #4F8A10; 
+
+}
+
+
+
